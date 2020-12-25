@@ -1,0 +1,122 @@
+# Индивидуальное задание к практической номер 4
+# Солодухин Даниил
+# группа: АДЭУ-201
+# вариант 10
+# Квитанция, накладная, документ, счет
+
+ документ класса:
+    def _ _ init__(self, name, number, date, addressee):
+        self.name = имя
+        self.number = число
+        self.date = дата
+        self.addressee = адресат
+
+     реквизиты def(self):
+        print(f'НАЗВАНИЕ: {self.name}; НОМЕР: {self.number}; ДАТА: {self.date}; АДРЕСАНТ: {self.addressee}')
+
+     одобренный def(self):
+        organization = input('введите наименование органа в творительном падеже: ')
+        date_of_approval = input('введите дату утверждения документа: ')
+        print(f '{self.name} {self.number} от {Self.date} к {self.addressee}'
+              f'УТВЕРЖДЕНО {организация} {DATE_OF_APPROVAL}')
+
+    def согласился(self):
+        agency = input('введите наименование органа в творительном падеже: ')
+        date_of_agreement = input('введите дату согласования документа: ')
+        print(f'СОГЛАСОВАНО {Agency} {DATE_OF_AGREEMENT}')
+
+     подпись def(self):
+        d = input('Введите дату подписания: ')
+        sign = input("Подпишите документ: ")
+        decryption = input("Расшифруйте подпись - фамилия и инициалы: ")
+        print(f"ДАТА: {d} ПОДПИСЬ: {sign} РАСШИФРОВКА ПОДПИСИ: {decryption}")
+
+
+ счет-фактура класса(документ):
+    def _ _ init__(self, number, date, to_whom, from_whom, name = 'НАКЛАДНАЯ',):
+        self.name = имя
+        self.number = число
+        self.date = дата
+        self.to_whom = to_whom
+        self.from_whom = from_whom
+
+     реквизиты def(self):
+        print(f'НАЗВАНИЕ: {self.name}; НОМЕР: {self.number}; ДАТА: {self.date}; КОМУ: {self.to_whom}; ОТ КОГО: {self.from_whom}')
+
+    def info_about_good(self):
+        number_of_good = input('введите номер товара: ')
+        name_of_good = input('введите название товара: ')
+        count_of_good = int(input('введите количество товара: '))
+        cost_of_good = int(input('введите цену товара: '))
+        sum_of_good = count_of_good * cost_of_good
+        print(f'НОМЕР: {number_of_good}; НАЗВАНИЕ: {name_of_good}; КОЛИЧЕСТВО: {count_of_good}; ЦЕНА: {cost_of_good}; СУММА: {sum_of_good}')
+
+     подпись def(self):
+        d = input('Введите дату подписания: ')
+        sign_who_passed = input("Подпись того, кто сдал: : ")
+        decryption_who_passed = input("Расшифрвка подписи, кто сдал: ")
+        sign_who_accepted = input("Подпись того, кто принял: : ")
+        decryption_who_accepted = input("Расшифрвка подписи, кто принял: ")
+        print(f"ДАТА: {d} СДАЛ: {sign_who_passed} {decryption_who_passed} ПРИНЯЛ: {sign_who_accepted} {decryption_who_accepted}")
+
+
+class Receipt(Document):
+    def __init__(self, number, date, customer, name = 'КВИТАНЦИЯ',):
+        self.name = name
+        self.number = number
+        self.date = date
+        self.customer = customer
+
+     реквизиты def(self):
+        print(f'НАЗВАНИЕ: {self.name}; НОМЕР: {self.number}; ДАТА: {self.date}; ЗАКАЗЧИК: {self.customer}')
+
+    def info_about_service(self):
+        number_of_service = input('введите номер услуги/работы: ')
+        name_of_service = input('введите название услуги/работы: ')
+        cost_of_service = int(input('введите цену услуги/работы: '))
+        print(f'НОМЕР: {number_of_service}; НАЗВАНИЕ: {name_of_service}; ЦЕНА: {cost_of_service}')
+
+     подпись def(self):
+        d = input('Введите дату подписания: ')
+        sign_who_payed = input("Подпись того, кто оплатил: : ")
+        decryption_who_payed = input("Расшифрвка подписи, кто оплатил: ")
+        sign_who_got = input("Подпись того, кто получил: : ")
+        decryption_who_got = input("Расшифрвка подписи, кто получил: ")
+        print(f " ДАТА: {D} оплатил: {SIGN_WHO_PAYED} {decryption_who_payed} получил: {sign_who_got} {DECRYPTION_WHO_GOT}")
+        print('квитанция является бланком строгой отчетности')
+
+классный чек(документ):
+    def __init__(self, number, date, name = 'СЧЕТ НА ОПЛАТУ'):
+        self.name = имя
+        self.number = число
+        self.date = дата
+
+     реквизиты def(self):
+        print(f'НАЗВАНИЕ: {self.name}; НОМЕР: {self.number}; ДАТА: {self.date}')
+
+    def info_about_service(self):
+        number_of_service = input('введите номер услуги/работы: ')
+        name_of_service = input('введите название услуги/работы: ')
+        cost_of_service = int(input('введите цену услуги/работы: '))
+        print(f'НОМЕР: {number_of_service}; НАЗВАНИЕ: {name_of_service}; ЦЕНА: {cost_of_service}')
+
+
+
+
+doc1 = Document('Приказ', "123", '20.04.2013', 'Иванов')
+печать(doc1.реквизиты())
+печать(doc1.одобрено())
+печать(doc1.согласовано())
+печать(doc1.подпись())
+doc2 = Invoice('123', '12.04.2019', "Иванов", 'Иванова')
+печать(doc2.реквизиты())
+print(doc2.info_about_good())
+печать(doc2.подпись())
+doc3 = Receipt('123', '12.09.2012', 'Иванов')
+печать(doc3.реквизиты())
+print(doc3.info_about_service())
+печать(doc3.подпись())
+doc4 = Bill('123', '16.08.2020')
+print(doc4.requisites())
+print(doc4.info_about_service())
+print(doc4.signature())
